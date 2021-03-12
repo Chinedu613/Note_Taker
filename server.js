@@ -2,6 +2,8 @@
 
 const express = require('express');
 
+//const { v4 : uuidv4 } = require('uuid');
+
 
 // Sets up express app for Heroku
 
@@ -11,7 +13,7 @@ const PORT = process.env.PORT || 3050;
 // Sets up Express app to handle data parsing
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 // ROUTER - reads db.json file to to return notes saved as JSON
 require('./routes/apiRoutes')(app);
